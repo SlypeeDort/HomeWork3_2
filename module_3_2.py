@@ -5,9 +5,10 @@ def send_email(message, recipient, *, sender="university.help@gmail.com"):
     if change_sender == 'да':
         sender = input('Напишите почту отпровителя: ')
     recipient.find("@")
+    sender.find("@")
     print()
     ending = ('.com', '.ru', '.net')
-    if recipient.find("@") == -1 or recipient.endswith(ending) or sender.endswith(ending):
+    if recipient.find("@") == -1 or sender.find("@") == -1 or recipient.endswith(ending) or sender.endswith(ending):
         print(f'Невозможно отправить письмо с адреса {sender} на адрес {recipient}')
     elif sender.lower() == recipient.lower():
         print('Нельзя отправить письмо самому себе!')
